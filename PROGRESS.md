@@ -93,3 +93,6 @@ Next: emulator e2e screenshots (AI_MOCK debug build), README.
 - First-run onboarding: 3 icon-led cards, skippable, remembered.
 - Dialog redraw quirk: not reproduced this round (the print dialog drew its estimates without a tap).
 - Repo: pure MIT LICENSE, THIRD_PARTY_LICENSES.md (csg.js, Lilita One), example name changed to "Mika", history reset to one commit. CI workflow is ready but not pushed: the gh token lacks the `workflow` scope.
+
+## TODO (Florian, via GitHub web UI)
+- Add CI: copy `docs/ci.yml.example` to `.github/workflows/ci.yml` (builds + runs unit tests on push, no secrets).
