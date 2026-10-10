@@ -82,3 +82,14 @@ Next: emulator e2e screenshots (AI_MOCK debug build), README.
 - Shrink offer when > 3 h: the biggest size (>= 50%) that hits 2.5 h, or at least 45% faster.
 - Dialog: mode cards (colour dots, time, g, swaps), merge note, make-it-smaller row, "Strong joints" check with a "Make stronger" button, recomputed whenever the toy changes. Tests 39/39.
 - Device (ATD emulator, mock build): dialog shows 1 colour about 3 h / 69 g / no swaps; colourful about 8 h / 119 g / 171 swaps; after Make stronger: Strong joints, shrink offer 60% to about 4 h / 50 g. Screenshots e2e-18, e2e-19. Release APK rebuilt.
+
+## Round 5 (bug hunt + kid features)
+- Lint: 0 errors, 8 warnings (dependency updates, fixed orientation, monochrome icon). Tests: 48/48 (39 before).
+- Start-up: font, encrypted settings (Keystore master key), autosave load and text meshing now run off the main thread, in order (the font loads first so autosaved 3D text never meshes as a cube). A fresh install on the ATD emulator shows no ANR dialog. The earlier "Process system isn't responding" dialog came from system_server under TCG, not from the app.
+- Autosave: written straight away on onStop (survives process death). It is never written before the old autosave is loaded, and a toy started during start-up is kept.
+- Import: bounded read (60 MB), OOM caught, NaN/degenerate triangles dropped, binary STL with a "solid" header or trailing bytes, broken OBJ gives a kid message; 200k-triangle STL in 114 ms (ImportRobustnessTest, 7 tests). Mesh encoding moved off the main thread.
+- Museum: the Smithsonian file host 3d-api.si.edu serves an expired certificate (CN=ids.si.edu, notAfter 2026-10-09 23:59 GMT); search on api.si.edu works. No alternate host. The shelf is hidden while the TLS probe fails; TLS is never bypassed. ModelLibrary.isAvailable() defaults to true.
+- Keychain template (Aa → Keychain): tag + key ring + raised name, one flat piece, 67x24x6 mm; ~12 min / 5 g one colour, ~19 min / 6 g / 4 swaps colourful, no supports. Device and JVM give the same numbers for the same scene, so the round-4 mismatch was a different scene (saved project vs the test's rebuilt alien), not a code path difference.
+- First-run onboarding: 3 icon-led cards, skippable, remembered.
+- Dialog redraw quirk: not reproduced this round (the print dialog drew its estimates without a tap).
+- Repo: pure MIT LICENSE, THIRD_PARTY_LICENSES.md (csg.js, Lilita One), example name changed to "Mika", history reset to one commit. CI workflow is ready but not pushed: the gh token lacks the `workflow` scope.

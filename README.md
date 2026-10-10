@@ -4,6 +4,11 @@ A native Android tablet app (Kotlin + Jetpack Compose + OpenGL ES 2.0) that lets
 build toys from chunky 3D shapes, get help from an AI "Toy Buddy" (Claude), and export a
 printable STL / 3MF.
 
+| | |
+|---|---|
+| ![First run](docs/screenshots/onboarding.png) | ![Keychain](docs/screenshots/keychain.png) |
+| ![Name dialog](docs/screenshots/name-dialog.png) | ![Print dialog](docs/screenshots/print-dialog.png) |
+
 Sideload build: `./gradlew assembleRelease` gives a signed APK when a keystore is configured (Android 8.0+).
 
 ## What a kid can do
@@ -17,7 +22,7 @@ Sideload build: `./gradlew assembleRelease` gives a signed APK when a keystore i
 | **Undo / redo** | Top bar, 100 steps. Repeated taps on the same tool are merged into one step. |
 | **AI** | Bottom "magic bar": type or speak an idea ("a dragon car") or tap an idea chip → Claude returns a JSON list of shapes that is placed on the plate. **✨ Better** sends the current scene and gets an improved version back. |
 | **Print** | Printer button → checklist (on the plate, nothing floating, no tiny bits, fits the printer, size in mm) + a "printer recipe" (supports? brim?) → **Send to Bambu / Orca** (share sheet, Bambu Studio/OrcaSlicer project 3MF), **Save on this tablet** (`Download/ToyForge/`), or **Share STL** for any other slicer. Parts that would float or are too thin blink red in 3D, and the printer button gets an orange dot. |
-| **Names** | "Aa" tile: type a name (e.g. *Mika*) → **Stand-up letters** (raised 3D letters, placed on the selected part) or **Name plate under my toy** (the toy is lifted onto a plate, the name lies on its front strip). Letters are real solids (Lilita One font, OFL) fused with the toy. |
+| **Names** | "Aa" tile: type a name (e.g. *Mika*) → **Stand-up letters** (raised 3D letters, placed on the selected part), **Name plate under my toy** (the toy is lifted onto a plate, the name lies on its front strip) or **Keychain** (a flat name tag with a key ring, about 12 minutes to print). Letters are real solids (Lilita One font, OFL) fused with the toy. |
 | **Grown-ups** | ⚙️ in the top bar → times-table gate → Claude API key (stored encrypted on the tablet), optional proxy URL, model (sonnet / haiku), printer bed (X1/P1/A1 256 mm or A1 mini 180 mm), "Test" button (one tiny haiku request). |
 | **My toys** | Save (with thumbnail), open, new, delete. Autosave on every change. "Start from…" starter toys (car, rocket, robot, snowman, house, cat). Open an STL/OBJ from device storage and add shapes to remix it. |
 
