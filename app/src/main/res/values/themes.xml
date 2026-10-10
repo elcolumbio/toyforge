@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.ToyForge" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">#FFE9F6FF</item>
+        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:navigationBarColor">#00000000</item>
+    </style>
+</resources>

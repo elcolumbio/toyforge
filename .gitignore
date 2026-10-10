@@ -1,0 +1,23 @@
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+captures/
+
+# Generated locally from your OrcaSlicer install by flatten.py (not redistributed)
+tools/slicetest/machine.json
+tools/slicetest/process.json
+tools/slicetest/filament.json
+
+# never commit
+.kotlin/
+*.log
+*.apk
+*.aab
+*.jks
+*.keystore
+keystore*
+.DS_Store
+local.properties
+*.hprof
